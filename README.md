@@ -23,6 +23,6 @@ $ git clone git@github.com:yourGitHubAccount/HotelApp.git hotels
 ```
 
 #Set up the Continuous Integration infrastructure
-[Travis CI](./travis-ci.md)
-[Jenkins](./jenkins.md)
+* [Travis CI](./travis-ci.md)
+* [Jenkins](./jenkins.md)
 
