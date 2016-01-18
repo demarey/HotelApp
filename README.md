@@ -26,3 +26,19 @@ $ git clone git@github.com:yourGitHubAccount/HotelApp.git hotels
 * [Travis CI](./travis-ci.md)
 * [Jenkins](./jenkins.md)
 
+#Some development
+##Add a new Hotel
+In the `HotelModel` class, add a new Hotel  named « Hotel Cigogne », located at « Grand Place », with an empty town and two stars.
+```java
+new Hotel("Hotel Cigogne","Grand place","",2)
+```
+You are in a hurry and you do not want to loose time: you commit without test it before! Bad idea, but let us see...
+```bash
+$ git commit –m « adding a new hotel » 
+$ git push
+```
+Now check if a build is triggered on the CI server. What is the result?
+##Fix a problem
+As you can see, there is a problem in a test.
+
+**Exercise**: Find the test in error from the Jenkins server. 
