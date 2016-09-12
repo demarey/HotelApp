@@ -19,7 +19,7 @@ In order to simulate developments made by a team, you will fork an existing repo
 
 On your computer, you will get a working copy from the forked repository to be able to work on the Hotels code.
 ```bash
-$ git clone git@github.com:yourGitHubAccount/HotelApp.git hotels
+$ git clone https://github.com/demarey/HotelApp.git hotels
 ```
 
 #Set up the Continuous Integration infrastructure
