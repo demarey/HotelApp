@@ -161,7 +161,7 @@ Now you have a brand new Maven project directory structure. Switch to the HotelD
 Now let's test the application. A few simple test classes can be found in the source code. Unit testing is (or should be!) an important part of any enterprise Java application. Maven completely integrates unit testing into the development lifecycle. To run all your unit tests, you invoke the test lifecycle phase: ```mvn test```
 If you want to run only one test, you can use the test parameter: ```mvn test -Dtest=HotelModelTest```
 A nice feature of Maven 2 is its use of regular expressions and the test parameter to control the tests you want to run. If you want to run only one test, you just indicate the name of the test class: ```mvn test -Dtest=HotelModelTest```
-If you want to run only a subset of the unit tests, you can use a standard regular expression. For example, to test all ModelTest classes: ```mvn test -Dtest=*ModelTest```
+If you want to run only a subset of the unit tests, you can use a standard regular expression. For example, to test all ModelTest classes: ```mvn test -Dtest=*ModelTest```
 
 ##Building and deploying the JAR
 
