@@ -1,6 +1,6 @@
 This article is an adaptation ot the tutorial available at http://www.javaworld.com/article/2072203/build-ci-sdlc/an-introduction-to-maven-2.html
 
-# A introduction to Maven 2
+# An introduction to Maven 2
 
 Maven is a popular open source build tool for enterprise Java projects, designed to take much of the hard work out of the build process. Maven uses a declarative approach, where the project structure and contents are described, rather then the task-based approach used in Ant or in traditional make files, for example. This helps enforce company-wide development standards and reduces the time needed to write and maintain build scripts.
 
