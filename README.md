@@ -8,6 +8,21 @@ Source code of the Java example available at http://www.javaworld.com/article/20
 
 This example uses Maven as build tool.
 
+To test the web application, we will use the Jetty plugin. In order to use it, we need to declare it in our maven settings file *$HOME/.m2/settings.xml*.: 
+```xml
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd">
+  ...
+  <pluginGroups>
+    <pluginGroup>org.eclipse.jetty</pluginGroup>
+  </pluginGroups>
+  ...
+</settings>
+```
+Jetty is not anymore in the list of known plugins. Maven searchs in the pluginGroups list when a plugin is used and the groupId is not provided in the command line.
+
 To run the example, go into the HotelWebApp module and type :
 ```bash
 $ mvn jetty:run
