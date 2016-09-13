@@ -71,9 +71,9 @@ Some of the more useful Maven 2 lifecycle phases are the following:
 - **install**: Installs the package into the local repository for use as a dependency in other projects on your local machine
 - **deploy**: Done in an integration or release environment, copies the final package to the remote repository for sharing with other developers and projects
 
-These phases illustrate the benefits of the recommended practices encouraged by Maven 2: once a developer is familiar with the main Maven 2 lifecycle phases, he should feel at ease with the lifecycle phases of any Maven project.
+These phases illustrate the benefits of the recommended practices encouraged by Maven 2: once a developer is familiar with the main Maven lifecycle phases, he should feel at ease with the lifecycle phases of any Maven project.
 
-The lifecycle phase invokes the plug-ins it needs to do the job. Invoking a lifecycle phase automatically invokes any previous lifecycle phases as well. Since the lifecycle phases are limited in number, easy to understand, and well organized, becoming familiar with the lifecycle of a new Maven 2 project is easy.
+The lifecycle phase invokes the plug-ins it needs to do the job. Invoking a lifecycle phase automatically invokes any previous lifecycle phases as well. Since the lifecycle phases are limited in number, easy to understand, and well organized, becoming familiar with the lifecycle of a new Maven project is easy.
 
 ## Transitive dependencies
 
@@ -89,8 +89,6 @@ Suppose you want to use Hibernate in your project. You would simply add a new de
    </dependency> 
 ```
 And that's it! You don't have to hunt around to know in which other JARs (and in which versions) you need to run Hibernate 3.0.3; Maven will do it for you!
-
-The XML structure for dependencies in Maven 2 is similar to the one used in Maven 1. The main difference is the scope tag, which is explained in the following section.
 
 ##Dependency scopes
 
@@ -116,10 +114,10 @@ This takes a whole new dimension when the Maven site generation is integrated in
 - Team member list
 - And much more
 
-Once again, any Maven-savvy developer will immediately know where to look to become familiar with a new Maven 2 project.
+Once again, any Maven-savvy developer will immediately know where to look to become familiar with a new Maven project.
 
 ##A practical example
-Now that we have seen a few of the basic notions used in Maven 2, let's see how it works in the real world. The rest of this tutorial examines how we would use Maven 2 on a simple Java Enterprise Edition project. The demo application involves an imaginary (and simplified) hotel database system. To demonstrate how Maven handles dependencies between projects and components, this application will be built using two components (see Figure 3):
+Now that we have seen a few of the basic notions used in Maven, let's see how it works in the real world. The rest of this tutorial examines how we would use Maven on a simple Java Enterprise Edition project. The demo application involves an imaginary (and simplified) hotel database system. To demonstrate how Maven handles dependencies between projects and components, this application will be built using two components (see Figure 3):
 - A business logic component: HotelDatabase.jar
 - A Web application component: HotelWebApp.war
 
@@ -127,7 +125,7 @@ Now that we have seen a few of the basic notions used in Maven 2, let's see how 
 
 ##Set up your project environment
 
-We start by configuring your work environment. In real-world projects, you will often need to define and configure environment or user-specific parameters that should not be distributed to all users. If you are behind a firewall with a proxy, for example, you need to configure the proxy settings so that Maven can download JARs from repositories on the Web. For Maven 1 users, the build.properties and project.properties files do this job. In Maven 2, they have been replaced by a settings.xml file, which goes in the $HOME/.m2 directory. Here is an example:
+We start by configuring your work environment. In real-world projects, you will often need to define and configure environment or user-specific parameters that should not be distributed to all users. If you are behind a firewall with a proxy, for example, you need to configure the proxy settings so that Maven can download JARs from repositories on the Web. It is done through a settings.xml file, which goes in the $HOME/.m2 directory. Here is an example:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
@@ -150,13 +148,13 @@ The next step is to create a new Maven project template for the business logic c
 
 Run the following command to set up your HotelDatabase.jar project: ```mvn archetype:generate```
 Use following values:
-- artefact type: default value
+- artifact type: maven-archetype-quickstart
 - groupId: com.javaworld.hotels
 - artifactId: HotelDatabase
 - packagename: com.javaworld.hotels 
 Now you have a brand new Maven project directory structure. Switch to the HotelDatabase directory and copy the sources from this git branch.
 
-## Unit testing with Maven 2
+## Unit testing with Maven
 
 Now let's test the application. A few simple test classes can be found in the source code. Unit testing is (or should be!) an important part of any enterprise Java application. Maven completely integrates unit testing into the development lifecycle. To run all your unit tests, you invoke the test lifecycle phase: ```mvn test```
 If you want to run only one test, you can use the test parameter: ```mvn test -Dtest=HotelModelTest```
@@ -167,7 +165,7 @@ If you want to run only a subset of the unit tests, you can use a standard regul
 
 Once you're happy with the tests, you can build and deploy your new JAR. The install command compiles, tests, and bundles your classes into a jar file and deploys it to your local Maven 2 repository, where it can be seen by other projects: ```mvn install```
 
-Create a Web application
+##Create a Web application
 
 Now we want to use this library in a Web application. For simplicity, our Web application will consist of a JavaServer Pages (JSP) file that directly invokes the HotelModel class. First, we create a new Web application project using the archetype plug-in with values:
 - groupId: com.javaworld.hotels
@@ -186,7 +184,7 @@ Now we copy the main (and only) JSP page from this git repository to the destina
 
 ## Working with plug-ins
 
-Maven 2 comes with an ever-increasing number of plug-ins that add extra functions to your build process with little effort. To use a plug-in, you bind it to a lifecycle phase. Maven will then figure out when (and how) to use it. Some plug-ins are already used by Maven behind the scenes, so you just have to declare them in the plugins section of your pom.xml file. The following plug-in, for example, is used to compile with J2SE 1.5 source code:
+Maven comes with an ever-increasing number of plug-ins that add extra functions to your build process with little effort. To use a plug-in, you bind it to a lifecycle phase. Maven will then figure out when (and how) to use it. Some plug-ins are already used by Maven behind the scenes, so you just have to declare them in the plugins section of your pom.xml file. The following plug-in, for example, is used to compile with J2SE 1.5 source code:
 ```xml
 ...
    <build>
@@ -230,7 +228,7 @@ Maven 2 comes with an ever-increasing number of plug-ins that add extra function
   ```
 ## Conclusion
 
-Maven 2.0 is a powerful tool that greatly simplifies and standardizes the build process. By promoting a standard project organization and recommended best practices, Maven handles much of the grunt work. And standard plug-ins such as the site generator provide valuable team-oriented project tools with little extra effort. Check it out!
+Maven is a powerful tool that greatly simplifies and standardizes the build process. By promoting a standard project organization and recommended best practices, Maven handles much of the grunt work. And standard plug-ins such as the site generator provide valuable team-oriented project tools with little extra effort. Check it out!
 
 John Ferguson Smart has been involved in the IT industry since 1991, and in J2EE development since 1999. His specialties are J2EE architecture and development and IT project management, including offshore project management. He has wide experience in open source Java technologies. He has worked on many large-scale J2EE projects for governments and businesses in both hemispheres, involving international and offshore teams, and also writes technical articles in the J2EE field. His technical blog can be found at http://www.jroller.com/page/wakaleo.
 
