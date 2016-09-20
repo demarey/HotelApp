@@ -83,7 +83,9 @@ Install the CMake plugin from Jenkins.
 We will use an already defined C++ project.
 * Create a new job (free-syle project) named cpp-project.
 * Configure the source code repository to:
-```svn://scm.gforge.inria.fr/svnroot/ecoleadt11/trunk/practicalClass/tests/C++```
+```
+svn://scm.gforge.inria.fr/svnroot/ecoleadt11/trunk/practicalClass/tests/C++
+```
 Then, add a CMake build step. Finally, trigger a build manually and check the output
 
 # Bonus
