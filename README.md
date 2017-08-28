@@ -1,7 +1,7 @@
 HotelApp
 ========
 
-#Information
+# Information
 Source code of the Java example available at http://www.javaworld.com/article/2072203/build-ci-sdlc/an-introduction-to-maven-2.html .
 
 ![HotelWebApp model](http://images.techhive.com/images/idge/imported/article/jvw/2005/12/jw-1205-maven3-100156415-orig.gif)
@@ -37,12 +37,12 @@ On your computer, you will get a working copy from the forked repository to be a
 $ git clone https://github.com/demarey/HotelApp.git hotels
 ```
 
-#Set up the Continuous Integration infrastructure
+# Set up the Continuous Integration infrastructure
 * [Travis CI](./travis-ci.md)
 * [Jenkins](./jenkins.md)
 
-#Some development
-##Add a new Hotel
+# Some development
+## Add a new Hotel
 In the `HotelModel` class, add a new Hotel  named « Hotel Cigogne », located at « Grand Place », with an empty town and two stars.
 ```java
 new Hotel("Hotel Cigogne","Grand place","",2)
@@ -53,7 +53,7 @@ $ git commit –m « adding a new hotel »
 $ git push
 ```
 Now check if a build is triggered on the CI server. What is the result?
-##Fix a problem
+## Fix a problem
 As you can see, there is a problem in a test.
 
 **Exercise**: Find the test in error from the Jenkins server. 
