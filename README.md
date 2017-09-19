@@ -6,7 +6,7 @@ Maven is a popular open source build tool for enterprise Java projects, designed
 
 The declarative, lifecycle-based approach used by Maven 1 is, for many, a radical departure from more traditional build techniques, and Maven 2 goes even further in this regard. In this article, I go through some of the basic principals behind Maven 2 and then step through a working example. Let's start by reviewing the fundamentals of Maven 2.
 
-##The project object model
+## The project object model
 
 The heart of a Maven 2 project is the project object model (or POM for short). It contains a detailed description of your project, including information about versioning and configuration management, dependencies, application and testing resources, team members and structure, and much more. The POM takes the form of an XML file (pom.xml), which is placed in your project home directory. A simple pom.xml file is shown here:
 
@@ -32,7 +32,7 @@ The heart of a Maven 2 project is the project object model (or POM for short). I
    </dependencies>
 </project> 
 ```
-##The Maven 2 directory structure
+## The Maven 2 directory structure
 
 Much of Maven's power comes from the standard practices it encourages. A developer who has previously worked on a Maven project will immediately feel familiar with the structure and organization of a new one. Time need not be wasted reinventing directory structures, conventions, and customized Ant build scripts for each project. Although you can override any particular directory location for your own specific ends, you really should respect the standard Maven 2 directory structure as much as possible, for several reasons:
 - It makes your POM file smaller and simpler
@@ -52,7 +52,7 @@ The src directory has a number of subdirectories, each of which has a clearly de
 - **src/test/filters**: Resources filters to be used for unit tests, but will not be deployed
 - **src/site**: Files used to generate the Maven project Website
 
-##Project lifecycles
+## Project lifecycles
 
 Project lifecycles are central to Maven 2. Most developers are familiar with the notion of build phases such as compile, test, and deploy. Ant has targets with names like those. In Maven 1, corresponding plug-ins are called directly. To compile Java source code, for instance, the java plug-in is used:
 ```bash
@@ -90,7 +90,7 @@ Suppose you want to use Hibernate in your project. You would simply add a new de
 ```
 And that's it! You don't have to hunt around to know in which other JARs (and in which versions) you need to run Hibernate 3.0.3; Maven will do it for you!
 
-##Dependency scopes
+## Dependency scopes
 
 In a real-world enterprise application, you may not need to include all the dependencies in the deployed application. Some JARs are needed only for unit testing, while others will be provided at runtime by the application server. Using a technique called dependency scoping, Maven 2 lets you use certain JARs only when you really need them and excludes them from the classpath when you don't.
 
@@ -116,7 +116,7 @@ This takes a whole new dimension when the Maven site generation is integrated in
 
 Once again, any Maven-savvy developer will immediately know where to look to become familiar with a new Maven project.
 
-##A practical example
+## A practical example
 Now that we have seen a few of the basic notions used in Maven, let's see how it works in the real world. The rest of this tutorial examines how we would use Maven on a simple Java Enterprise Edition project. The demo application involves an imaginary (and simplified) hotel database system. To demonstrate how Maven handles dependencies between projects and components, this application will be built using two components (see Figure 3):
 - A business logic component: HotelDatabase.jar
 - A Web application component: HotelWebApp.war
@@ -142,7 +142,7 @@ We start by configuring your work environment. In real-world projects, you will 
   </proxies>
 </settings> 
 ```
-##Create a new project with the archetype plug-in
+## Create a new project with the archetype plug-in
 
 The next step is to create a new Maven project template for the business logic component. Maven provides the archetype plug-in, which builds an empty Maven-compatible project directory structure. This plug-in proves convenient for getting a basic project environment up and running quickly. The default archetype model will produce a JAR library project. Several other artifact types are available for other specific project types, including Web applications, Maven plug-ins, and others.
 
@@ -161,11 +161,11 @@ If you want to run only one test, you can use the test parameter: ```mvn test -D
 A nice feature of Maven 2 is its use of regular expressions and the test parameter to control the tests you want to run. If you want to run only one test, you just indicate the name of the test class: ```mvn test -Dtest=HotelModelTest```
 If you want to run only a subset of the unit tests, you can use a standard regular expression. For example, to test all ModelTest classes: ```mvn test -Dtest=*ModelTest```
 
-##Building and deploying the JAR
+## Building and deploying the JAR
 
 Once you're happy with the tests, you can build and deploy your new JAR. The install command compiles, tests, and bundles your classes into a jar file and deploys it to your local Maven 2 repository, where it can be seen by other projects: ```mvn install```
 
-##Create a Web application
+## Create a Web application
 
 Now we want to use this library in a Web application. For simplicity, our Web application will consist of a JavaServer Pages (JSP) file that directly invokes the HotelModel class. First, we create a new Web application project using the archetype plug-in with values:
 - groupId: com.javaworld.hotels
