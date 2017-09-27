@@ -90,4 +90,4 @@ Then, add a CMake build step. Finally, trigger a build manually and check the ou
 
 # Bonus
 * Install a Jenkins server on a virtual machine provided by the university (OpenStack)
-* Use docker with Jenkins: https://iww.inria.fr/tech-zone/using-docker-to-run-jenkins-jobs/
+* [Use docker with Jenkins](./jenkins-docker.md)
