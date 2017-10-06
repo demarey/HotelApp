@@ -123,7 +123,9 @@ Now that we have seen a few of the basic notions used in Maven, let's see how it
 
 ![HotelWebApp model](http://images.techhive.com/images/idge/imported/article/jvw/2005/12/jw-1205-maven3-100156415-orig.gif)
 
-##Set up your project environment
+The goal is not to develop this application. The source code is already available. You can get it by cloning this repository and swith to the **maven-tutorial** branch. **Outside the git repository**, create a new `HotelApp` folder. In this folder, you will create modules file layout by using maven archetypes. You will then copy / paste source files into the proper folders.
+
+## Set up your project environment
 
 We start by configuring your work environment. In real-world projects, you will often need to define and configure environment or user-specific parameters that should not be distributed to all users. If you are behind a firewall with a proxy, for example, you need to configure the proxy settings so that Maven can download JARs from repositories on the Web. It is done through a settings.xml file, which goes in the $HOME/.m2 directory. Here is an example:
 ```xml
