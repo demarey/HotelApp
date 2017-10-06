@@ -123,7 +123,7 @@ Now that we have seen a few of the basic notions used in Maven, let's see how it
 
 ![HotelWebApp model](http://images.techhive.com/images/idge/imported/article/jvw/2005/12/jw-1205-maven3-100156415-orig.gif)
 
-The goal is not to develop this application. The source code is already available. You can get it by cloning this repository and swith to the **maven-tutorial** branch. **Outside the git repository**, create a new `HotelApp` folder. In this folder, you will create modules file layout by using maven archetypes. You will then copy / paste source files into the proper folders.
+The goal is not to develop this application. The source code is already available. You can get it by cloning this repository and swith to the **maven-tutorial** branch.
 
 ## Set up your project environment
 
@@ -145,16 +145,37 @@ We start by configuring your work environment. In real-world projects, you will 
 </settings> 
 ```
 ## Create a new project with the archetype plug-in
+### Set up a maven project
+We will first create the top level folder that will contain the `HotelApp` and its two maven modules. 
+Maven provides the archetype plug-in, which builds an empty Maven-compatible project directory structure. This plug-in proves convenient for getting a basic project environment up and running quickly. The default archetype model will produce a JAR library project. Several other artifact types are available for other specific project types, including Web applications, Maven plug-ins, and others.
 
-The next step is to create a new Maven project template for the business logic component. Maven provides the archetype plug-in, which builds an empty Maven-compatible project directory structure. This plug-in proves convenient for getting a basic project environment up and running quickly. The default archetype model will produce a JAR library project. Several other artifact types are available for other specific project types, including Web applications, Maven plug-ins, and others.
+Run the maven archetype command **outside the git repository** previously cloned.
+```
+mvn archetype::generate
+```
+Use following values:
+- artifact type: org.codehaus.mojo.archetypes:pom-root
+- org.codehaus.mojo.archetypes:pom-root version: <latest>
+- groupId: com.javaworld.hotels
+- artifactId: Hotel
+- version: 1.0-SNAPSHOT
+- packagename: com.javaworld.hotels 
+It creates the `Hotel` folder with a maven descriptor (pom.xml) for the project. If you create new modules in the project you have to [declare them in this root pom.xml file](http://books.sonatype.com/mvnex-book/reference/multimodule-sect-simple-parent.html).
 
-Run the following command to set up your HotelDatabase.jar project: ```mvn archetype:generate```
+### Set up a maven module
+
+The next step is to create a new Maven project template for the business logic component.
+
+Run the following command to set up your HotelDatabase.jar module: 
+```
+mvn archetype:generate
+```
 Use following values:
 - artifact type: maven-archetype-quickstart
 - groupId: com.javaworld.hotels
 - artifactId: HotelDatabase
 - packagename: com.javaworld.hotels 
-Now you have a brand new Maven project directory structure. Switch to the HotelDatabase directory and copy the sources from this git branch.
+Now you have a brand new Maven module directory structure. Switch to the `HotelDatabase` directory and copy the sources from your clone of this git repository (maven-tutorial branch). In this folder, you will create the module file layout by using maven archetypes. You will then copy / paste source files into the proper folders.
 
 ## Unit testing with Maven
 
@@ -183,6 +204,8 @@ Next, we need to include our business logic JAR in this application. All we need
     </dependency>
 ```
 Now we copy the main (and only) JSP page from this git repository to the destination folder. It simply lists the available cities and, if a city is chosen, lists the corresponding hotels. Now run ```mvn install``` from the HotelWebapp directory; this will compile, bundle, and deploy the HotelWebapp.war file to your local repository (you can also find it in the target directory if you need to). Now you can deploy this war file to your favorite application server and see what you get.
+
+If you want to test quickly on your machine, you can use the Jetty plugin by following instructions from the [Readme file of the master branch](https://github.com/demarey/HotelApp/blob/master/README.md#information).
 
 ## Working with plug-ins
 
