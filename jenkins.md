@@ -41,7 +41,7 @@ A good strategy for code retrieving is to emulate a clean checkout to reduce the
 Continuous Integration is useful if tests are run after each code integration (a commit on the source code repository). Simply, there are 2 ways to obtain this result:
 * Poll the SCM (for example every 5 minutes). But this approach implies an overload of the SCM server and is not very efficient.
 * The best way is to define a post-hook commit that will warn Jenkins of a new commit and trigger a new build.
-With the GitHub plugin, it is easier: you can simply check the box *Build when a change is pushed to GitHub*
+With the GitHub plugin, it is easier: you can simply check the box *GitHub hook trigger for GitSCM polling*
 
 Add post-build actions:
 * to get an email notification
