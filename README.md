@@ -2,6 +2,13 @@ HotelApp
 ========
 
 # Information
+
+## Auteur
+
+Yann Garbé
+
+## Petite description
+
 Source code of the Java examples available at http://www.javaworld.com/article/2072203/build-ci-sdlc/an-introduction-to-maven-2.html .
 
 ![HotelWebApp model](http://images.techhive.com/images/idge/imported/article/jvw/2005/12/jw-1205-maven3-100156415-orig.gif)
