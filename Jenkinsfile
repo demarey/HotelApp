@@ -8,7 +8,7 @@ pipeline {
     }
     stage('test') {
       steps {
-        cobertura()
+        publishCoverage()
       }
     }
   }
