@@ -6,9 +6,14 @@ pipeline {
         build 'Hotel'
       }
     }
-    stage('script') {
+    stage('Sleep') {
       steps {
-        sh 'mvn package'
+        sleep 5
+      }
+    }
+    stage('') {
+      steps {
+        mail(subject: 'Bonjour', body: 'Comment va?', from: 'yanngarbe@gmail.com', replyTo: 'yanngarbe@gmail.com', to: 'yanngarbe@gmail.com')
       }
     }
   }
