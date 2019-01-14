@@ -11,9 +11,23 @@ pipeline {
         sleep 5
       }
     }
-    stage('') {
+    stage('Salutations') {
+      parallel {
+        stage('Salutations') {
+          steps {
+            echo 'Bonjour'
+          }
+        }
+        stage('Script Package') {
+          steps {
+            sh 'mvn package'
+          }
+        }
+      }
+    }
+    stage('Clean') {
       steps {
-        mail(subject: 'Bonjour', body: 'Comment va?', from: 'yanngarbe@gmail.com', replyTo: 'yanngarbe@gmail.com', to: 'yanngarbe@gmail.com')
+        sh 'mvn clean'
       }
     }
   }
