@@ -1,5 +1,10 @@
 pipeline {
-  agent none
+  agent {
+    node {
+      label 'Hotel'
+    }
+
+  }
   stages {
     stage('Build') {
       steps {
