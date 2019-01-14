@@ -25,14 +25,14 @@ pipeline {
         }
         stage('Script Package') {
           steps {
-            sh 'mvn package'
+            powershell 'mvn package'
           }
         }
       }
     }
     stage('Clean') {
       steps {
-        sh 'mvn clean'
+        powershell 'mvn clean'
       }
     }
   }
