@@ -27,7 +27,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        cobertura()
+        publishCoverage()
       }
     }
     stage('Clean') {
