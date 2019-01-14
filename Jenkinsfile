@@ -6,9 +6,9 @@ pipeline {
         build 'Hotel'
       }
     }
-    stage('test') {
+    stage('script') {
       steps {
-        publishCoverage()
+        sh 'mvn package'
       }
     }
   }
