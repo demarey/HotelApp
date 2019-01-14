@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Script Package') {
           steps {
-            sh 'echo Package'
+            publishCoverage()
           }
         }
       }
