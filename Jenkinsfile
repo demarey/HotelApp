@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Sleep') {
       steps {
-        sleep 5
+        sleep(time: 5, unit: 'NANOSECONDS')
       }
     }
     stage('Salutations') {
@@ -20,14 +20,19 @@ pipeline {
         }
         stage('Script Package') {
           steps {
-            publishCoverage()
+            sh 'mvn package'
           }
         }
       }
     }
+    stage('Test') {
+      steps {
+        cobertura()
+      }
+    }
     stage('Clean') {
       steps {
-        sh 'echo Clean'
+        sh 'mvn clean'
       }
     }
   }
