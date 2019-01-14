@@ -82,7 +82,7 @@ Install the CMake plugin from Jenkins.
 ## Configure a new job
 We will use an already defined C++ project.
 * Create a new job (free-syle project) named cpp-project.
-* Configure the source code repository to:
+* Configure the source code repository (subversion) to:
 ```
 https://scm.gforge.inria.fr/anonscm/svn/ecoleadt11/trunk/practicalClass/tests/C++
 ```
